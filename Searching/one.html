@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="page.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="icon" href="path/to/your/favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="path/to/your/favicon-16x16.png" sizes="16x16">
+
+    <title>harsh_tolet</title>
+    <link rel="icon" type="image/png" href="/lastimg.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <!-- <link rel="icon" type="image/x-icon" href="img\instagram.png"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@900&family=REM&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f018a6f7b3.js" crossorigin="anonymous"></script>
+ 
+
+  <body>
+    <header>
+    <nav class="navbar">
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <ul class="nav-list" id="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#Branchh">Branch</a></li>
+            <li class="dropdown">
+                <a href="#services">Services</a>
+               
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+    </nav>
+    <script src="page.js"></script>
+            
+            <span id="my-name">
+                <h1 class="moto">आओ अपना घर देखें</h1>
+              <h1>Harsh To-Let<br>    Services</h1>
+        
+            </span>
+        
+           
+     
+        </header>
+        <section id="about">
+            <h2 class="aboutus"><i class="fa-solid fa-pen-to-square"></i>About us</h2>
+        
+        <div class="slider">
+            <div class="slides">
+                <img src="5c1cbaf96bcec-wallpaper-preview.jpg" class="slide" alt="Image 1">
+                <img src="interior.jpg" class="slide" alt="Image 2">
+                <img src="modern-house-luminescent-pool-n926oqb3p0b1kpwn.jpg" class="slide" alt="Image 3">
+                <img src="interior-design-neoclassical-style-with-furnishings-decor_23-2151199287.jpg" class="slide" alt="Image 4">
+            </div>
+            <div class="navigation">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+        
+        <script src="page.js">
+        let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+    const offset = -currentSlide * 100;
+    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Optional: Auto-slide functionality
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+     </script>
+     </section>
+     <section id="Branchh">
+        <h2 class="aboutus"><i class="fa-solid fa-pen-to-square"></i>Branch</h2>
+        <div class="portfolio">
+            <div class="portfolio-content containerr">
+              <div class="proj-1">
+                <iframe class="map1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.2888466559!2d85.09094669567168!3d25.632225658471356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5776e5d6b123%3A0x217350c17bb9b260!2sHarsh%20To-let%20Services!5e0!3m2!1sen!2sin!4v1721174826421!5m2!1sen!2sin" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="proj1-details">
+                    <h2>Rajiv Nagar Branch</h2>
+                    <p> Rajiv nagar ,below PNB Bnak ,Road No :-19</p>
+                 
+                </div>
+              </div>
+              
+              <div class="proj-2">
+                <iframe class="map2"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.337662611947!2d85.06586472275693!3d25.60582910469511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b5e93a5783%3A0xaae704228f0fb2ad!2sAdarsh%20Vihar%20Colony%2C%20Rukanpura%2C%20Patna%2C%20Bihar%20801506!5e0!3m2!1sen!2sin!4v1721182457773!5m2!1sen!2sin" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="proj2-details">
+                  <h2>Aadarsh Vihar Colony</h2>
+                  <p>Aadarsh Vihar Colony,Mushari Gali,Road No :-2</p>
+                 
+                </div>
+                
+              </div>
+             
+            </div>
+          </div>
+                
+                
+    
+
+     </section>
+     <section id="services">
+        <h2 class="aboutus"><i class="fa-solid fa-pen-to-square"></i> Our Services</h2>
+       <div id="imageservices">
+        <img  class="landscape" src="imagesofservices.png" alt="ourservices">
+        <div>
+        </section>
+       
+        </section>
+        <section id="contact">
+            <h2 class="aboutus"><i class="fa-solid fa-pen-to-square"></i> Contact Us</h2>
+            
+           <div id="imageservices">
+            <img  class="landscape" src="blueimage.png" alt="ourservices">
+            <p class="watsappp"><a href=" https://wa.me/+919334362070"><img  class="landscape21" src="watsapp.png" alt="ourservices"></a><br><br><br></p>
+            <div>
+                <h5 class="watsapptext">"Click Watsapp Icon To Chat With Us."</h5>
+            </section>
+        
+           <div id ="button12">
+
+            </div>
+        </section>
+    </body>
+</html> 
