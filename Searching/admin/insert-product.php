@@ -143,16 +143,25 @@ while($row=mysqli_fetch_array($query))
 </div>
 </div>
 
-
+<div class="control-group">
+<label class="control-label" for="basicinput">Product Company</label>
+<div class="controls">
+<input type="text"    name="productCompany"  placeholder="Enter Product Comapny Name" class="span8 tip" required>
+</div>
 </div>
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Price </label>
+<label class="control-label" for="basicinput">Product Price Before Discount</label>
 <div class="controls">
 <input type="text"    name="productpricebd"  placeholder="Enter Product Price" class="span8 tip" required>
 </div>
 </div>
 
-
+<div class="control-group">
+<label class="control-label" for="basicinput">Product Price After Discount(Selling Price)</label>
+<div class="controls">
+<input type="text"    name="productprice"  placeholder="Enter Product Price" class="span8 tip" required>
+</div>
+</div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Description</label>
@@ -162,15 +171,20 @@ while($row=mysqli_fetch_array($query))
 </div>
 </div>
 
-
+<div class="control-group">
+<label class="control-label" for="basicinput">Product Shipping Charge</label>
+<div class="controls">
+<input type="text"    name="productShippingcharge"  placeholder="Enter Product Shipping Charge" class="span8 tip" required>
+</div>
+</div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Availability</label>
 <div class="controls">
 <select   name="productAvailability"  id="productAvailability" class="span8 tip" required>
 <option value="">Select</option>
-<option value="In Stock">available</option>
-<option value="Out of Stock">unavailable</option>
+<option value="In Stock">In Stock</option>
+<option value="Out of Stock">Out of Stock</option>
 </select>
 </div>
 </div>
@@ -203,7 +217,7 @@ while($row=mysqli_fetch_array($query))
 
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn">Insert</button>
+												<button type="submit" name="submit" class="btn btn-primary">Insert</button>
 											</div>
 										</div>
 									</form>
