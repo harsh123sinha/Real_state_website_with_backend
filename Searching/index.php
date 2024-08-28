@@ -97,33 +97,240 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 			
 <div id="hero" class="homepage-slider3">
 	<div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-		<div class="full-width-slider">	
-			<div class="item" style="background-image: url(assets/images/sliders/1.png);">
-				<!-- /.container-fluid -->
-			</div><!-- /.item -->
-		</div><!-- /.full-width-slider -->
-	    
-	    <div class="full-width-slider">
-			<div class="item full-width-slider" style="background-image: url(assets/images/sliders/2.png);">
-			</div><!-- /.item -->
-		</div><!-- /.full-width-slider -->
-		
-	    <div class="full-width-slider">
-			<div class="item full-width-slider" style="background-image: url(assets/images/sliders/3.png);">
-			</div><!-- /.item -->
-		</div><
-		
-	    <div class="full-width-slider">
-			<div class="item full-width-slider" style="background-image: url(assets/images/sliders/4.png);">
-			</div><!-- /.item -->
-		</div><
-		
+	<div class="slider">
+            <div class="slides">
+                <img src="1a.png" class="slide" alt="Image 1">
+                <img src="2b.png" class="slide" alt="Image 2">
+                <img src="3c.png" class="slide" alt="Image 3">
+                <img src="4d.png" class="slide" alt="Image 4">
+            </div>
+            <div class="navigation">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+		</div>
+		<style>
+			.slider {
+    position: relative;
+    width:2000px;
+    height: 50vh;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%x;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Media Query for screens smaller than 400px */
+@media screen and (max-width: 400px) {
+  
+    .slide {
+        min-width: 100%;
+        height: auto;
+       
+    }
+
+    .slider {
+        
+            position: relative;
+            width: 80%;
+            height: 20vh;
+            max-width: 1200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            margin-left: 20px;
+        
+        
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        
+    }
+
+    .navigation {
+        flex-direction: row;
+        
+        top: 50%;
+    height: 20%;
+    width: 100%;
+    margin-left: -130px;
+    margin-top: 1%;
+  
+
+    }
+
+    .prev, .next {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:700px){
+  .slide {
+    min-width: 100%;
+    height: 20vh;
+   
+}
+
+
+.slider {
+    
+        position: relative;
+        width: 80%;
+        height: 25vh;
+        max-width: 1200px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 50px;
+        margin-left: 20px;
+    
+    
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.navigation {
+    flex-direction: row;
+    
+    top: 50%;
+height: 20%;
+width: 100%;
+margin-left: -130px;
+margin-top: 1%;
+
+
+}
+
+.prev, .next {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+}
+@media screen and (max-width:700px){
+  #about {
+  height: 60vh;
+  }
+}
+			</style>
+		<script >
+        let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+    const offset = -currentSlide * 100;
+    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Optional: Auto-slide functionality
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+     </script>
 	 
 	</div><!-- /.owl-carousel -->
 </div>
 <style>
 @media screen and (max-width:400px){
-	.full-width-slider{
+	.homepage-slider3 #owl.main .item{
+		height:180px;
+	}
+	.owl-wrapper{
+		height=100px;
+		width=50px;
+	}
+	.homepage-slider3{
+	height=100px;
+    width=50px;
+}
+.owl-carousel{
+	height=100px;
+		width=50px;
+}
+.owl-item{
+	
+    width=30px;
+}
+
+.owl-carousel{
+	height=100px;
+    width=50px;
+}
+.owl-inner-nav{
+	height=100px;
+    width=50px;
+}
+.owl-ui-sm{
+	height=100px;
+    width=50px;
+}
+.full-width-slider{
     height=100px;
     width=50px;
 }
@@ -131,10 +338,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 	height=100px;
     width=50px;
 }
-#owl-main{
-	height=100px;
-    width=50px;
-}
+
 }
 
   

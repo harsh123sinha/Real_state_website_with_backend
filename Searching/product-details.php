@@ -59,7 +59,7 @@ if(isset($_POST['submit']))
 	    <title>Product Details</title>
 	    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="assets/css/main.css">
-	    <link rel="stylesheet" href="assets/css/green.css">
+	    <link rel="stylesheet" href="assets/css/red.css">
 	    <link rel="stylesheet" href="assets/css/owl.carousel.css">
 		<link rel="stylesheet" href="assets/css/owl.transitions.css">
 		<link href="assets/css/lightbox.css" rel="stylesheet">
@@ -84,9 +84,9 @@ if(isset($_POST['submit']))
 <header class="header-style-1">
 
 	<!-- ============================================== TOP MENU ============================================== -->
-
+<?php include('includes/top-header.php');?>
 <!-- ============================================== TOP MENU : END ============================================== -->
-<?php include('includes/main-header.php');?>
+<!--  -->
 	<!-- ============================================== NAVBAR ============================================== -->
 <?php include('includes/menu-bar.php');?>
 <!-- ============================================== NAVBAR : END ============================================== -->
@@ -98,13 +98,14 @@ if(isset($_POST['submit']))
 	<div class="container">
 		<div class="breadcrumb-inner">
 <?php
-$ret=mysqli_query($con,"select category.categoryName as catname,subCategory.subcategory as subcatname,products.productName as pname from products join category on category.id=products.category join subcategory on subcategory.id=products.subCategory where products.id='$pid'");
+$ret=mysqli_query($con,"select category.categoryName as catname,subcategory.subcategory as subcatname,products.productName as pname from products join category on category.id=products.category join subcategory on subcategory.id=products.subcategory where products.id='$pid'");
 while ($rw=mysqli_fetch_array($ret)) {
 
 ?>
 
 
 			<ul class="list-inline list-unstyled">
+				<li><a href="index.php">Home</a></li>
 				
 			</ul>
 			<?php }?>
@@ -141,7 +142,50 @@ while($row=mysqli_fetch_array($sql))
 	</div>
 </div>
 	<!-- ============================================== CATEGORY : END ============================================== -->					<!-- ============================================== HOT DEALS ============================================== -->
+<div class="sidebar-widget hot-deals wow fadeInUp">
+	
+	<div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
+		
+								   <?php
+$ret=mysqli_query($con,"select * from products order by rand() limit 4 ");
+while ($rws=mysqli_fetch_array($ret)) {
 
+?>
+
+								        
+													<div class="item">
+					<div class="products">
+						<div class="hot-deal-wrapper">
+							
+							
+						</div><!-- /.hot-deal-wrapper -->
+
+					<!-- /.product-info -->
+
+						<div class="cart clearfix animate-effect">
+							<div class="action">
+								
+								<div class="add-cart-button btn-group">
+								
+								<?php if($row['productAvailability']=='In Stock'){?>
+										
+							<a href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
+							
+								<?php } else {?>
+							
+					<?php } ?>
+															
+								</div>
+								
+							</div><!-- /.action -->
+						</div><!-- /.cart -->
+					</div>	
+					</div>		
+					<?php } ?>        
+						
+	    
+    </div><!-- /.sidebar-widget -->
+</div>
 
 <!-- ============================================== COLOR: END ============================================== -->
 				</div>
@@ -211,6 +255,10 @@ while($row=mysqli_fetch_array($ret))
                         <img class="img-responsive" width="85" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage3']);?>" height="200" />
                     </a>
                 </div>
+				<style>
+
+
+					</style>
 
                
                
@@ -239,13 +287,41 @@ $num=mysqli_num_rows($rt);
 									<div class="col-sm-3">
 										
 									</div>
-									<div class="col-sm-8">
 									
-									</div>
 								</div><!-- /.row -->		
 							</div><!-- /.rating-reviews -->
 <?php } ?>
-							
+							<div class="stock-container info-container m-t-10">
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="stock-box">
+											<span class="label">Availability :</span>
+										</div>	
+									</div>
+									<div class="col-sm-9">
+										<div class="stock-box">
+											<span class="value"><?php echo htmlentities($row['productAvailability']);?></span>
+										</div>	
+									</div>
+								</div><!-- /.row -->	
+							</div>
+
+
+
+<div class="stock-container info-container m-t-10">
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="stock-box">
+											<span class="label">Property Type:</span>
+										</div>	
+									</div>
+									<div class="col-sm-9">
+										<div class="stock-box">
+											<span class="value"><?php echo htmlentities($row['productCompany']);?></span>
+										</div>	
+									</div>
+								</div><!-- /.row -->	
+							</div>
 
 
 
@@ -264,12 +340,7 @@ $num=mysqli_num_rows($rt);
 
 
 
-									<div class="col-sm-6">
-										
-											
-											</a>
-										</div>
-									</div>
+									
 
 								</div><!-- /.row -->
 							</div><!-- /.price-container -->
@@ -279,8 +350,21 @@ $num=mysqli_num_rows($rt);
 
 
 
+							
 
-
+					<!-- 		<div class="product-social-link m-t-20 text-right">
+								<span class="social-label">Share :</span>
+								<div class="social-icons">
+						            <ul class="list-inline">
+						                <li><a class="fa fa-facebook" href="http://facebook.com/transvelo"></a></li>
+						                <li><a class="fa fa-twitter" href="#"></a></li>
+						                <li><a class="fa fa-linkedin" href="#"></a></li>
+						                <li><a class="fa fa-rss" href="#"></a></li>
+						                <li><a class="fa fa-pinterest" href="#"></a></li>
+						            </ul>
+						        </div>
+							</div>
+ -->
 							
 
 							
@@ -305,7 +389,7 @@ $num=mysqli_num_rows($rt);
 									<div class="product-tab">
 										<p class="text"><?php echo $row['productDescription'];?></p>
 									</div>	
-								</div><!--< /.tab-pane -->
+								</div><!-- /.tab-pane -->
 
 								<div id="review" class="tab-pane">
 									<div class="product-tab">
